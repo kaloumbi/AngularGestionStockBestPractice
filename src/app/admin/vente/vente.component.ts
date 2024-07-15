@@ -38,7 +38,7 @@ export class VenteComponent implements OnInit{
     return this.venteService.getListVente().subscribe(
       (data) => {
         console.log("Toutes les données ventes", data);
-        this.venteList = data //.filter((r: VenteI) => r.etat_vente === "ACTIF");
+        this.venteList = data.filter((r: VenteI) => r.etat_vente === "ACTIF");
 
         this.dttrigger.next(this.venteList);
         

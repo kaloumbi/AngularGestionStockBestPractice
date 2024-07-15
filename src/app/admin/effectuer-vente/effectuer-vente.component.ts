@@ -4,6 +4,7 @@ import { ArticleService } from '../../service/article.service';
 import { ArticleI } from '../../model/article-i';
 import { VenteArticleI } from '../../model/vente-article-i';
 import { VenteService } from '../../service/vente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-effectuer-vente',
@@ -31,14 +32,20 @@ export class EffectuerVenteComponent implements OnInit {
 
   effectuerVente() {
     // Logique pour effectuer la vente
-    alert("ok")
+    //alert("ok")
     console.log(this.venteUser);
-    alert("Vente effectuée !");
-    this.venteService.effectuerVente(this.venteUser).subscribe((data) => {
-      console.log("Vente", data);
-    },
-    (error)=>error.console.log(error)
-    )
+    if (this.venteUser.length > 0) {
+      this.venteService.effectuerVente(this.venteUser).subscribe((data) => {
+        //alert("eee");
+        this.venteUser = data;
+        console.log("Mes Ventes",this.venteUser);
+      },
+      (error)=>error.console.log(error)
+      )
+    } else {
+      
+      alert("pas de vente !");
+    }
   }
 
   listArticleVente() {

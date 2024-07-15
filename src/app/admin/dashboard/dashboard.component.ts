@@ -29,12 +29,7 @@ export class DashboardComponent implements OnInit{
 
 
   //ADD ARTICLE
-  articleForm: FormGroup = new FormGroup({
-    nom: new FormControl(""),
-    prix: new FormControl(""),
-    qte_dispo: new FormControl(""),
-    id_USER: new FormControl("") 
-  });
+  articleForm: FormGroup
 
   users: UserI[] = [];
   selectedUserId?: number;
@@ -64,7 +59,21 @@ export class DashboardComponent implements OnInit{
   artiModif:ArticleI | undefined;
 
 
-  constructor(private userService: UserService, private fb:FormBuilder, private tokserv: TokenService, private articleservice:ArticleService, private router:Router) { }
+  constructor(private userService: UserService, private fb: FormBuilder, private tokserv: TokenService, private articleservice: ArticleService, private router: Router) { 
+    
+    //Add article
+    this.articleForm = this.fb.group({
+      id_article: [''],
+      nom: ['', Validators.required],
+      prix: ['', Validators.required],
+      qte_dispo: ['', Validators.required]
+    })
+  }
+
+    get f() {
+    return this.articleForm.controls;
+  }
+
 
   ngOnInit() {
     //add User Entity
@@ -78,14 +87,7 @@ export class DashboardComponent implements OnInit{
     };
     
 
-    //Add article
-    this.articleForm = this.fb.group({
-      id_article: [''],
-      nom: ['', Validators.required],
-      prix: ['', /*Validators.required*/],
-      qte_dispo: ['', /*Validators.required*/],
-      id_USER: ['', /*Validators.required*/],
-    })
+    
 
     this.search();
     console.log("ddddddd");

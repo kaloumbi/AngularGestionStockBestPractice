@@ -84,21 +84,33 @@
                                             <div class="mb-3">
                                                 <label for="nomProduit" class="form-label">Nom du produit</label>
                                                 <input formControlName="nom" type="text" class="form-control" id="nomProduit" placeholder="Entrez le nom du produit" required="true">
+
+                                                <div class="text-danger">
+                                                    @if (f["nom"].errors?.["required"]) {
+                                                        <div>Le nom du produit est requis.</div>
+                                                    }
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="prixProduit" class="form-label">Prix</label>
                                                 <input formControlName="prix" type="number" class="form-control" id="prixProduit" placeholder="Entrez le prix du produit">
+                                                <div class="text-danger">
+                                                    @if (f["nom"].errors?.["required"]) {
+                                                        <div>Le prix du produit est requis.</div>
+                                                    }
+                                                </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="quantiteProduit" class="form-label">Quantité disponible</label>
                                                 <input formControlName="qte_dispo" type="number" class="form-control" id="quantiteProduit" placeholder="Entrez la quantité disponible">
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="utilisateurProduit" class="form-label">Utilisateur</label>
-                                                <input formControlName="id_USER" type="text" class="form-control" id="utilisateurProduit" placeholder="Entrez l'utilisateur">
+                                                <div class="text-danger">
+                                                    @if (f["nom"].errors?.["required"]) {
+                                                        <div>La quantité du produit est requise.</div>
+                                                    }
+                                                </div>
                                             </div>
 
-                                            <button type="submit" (click)="titleButton === 'Modifier' ? editArticle() : articlSubmit()" class="btn btn-primary">{{titleButton}} </button>
+                                            <button type="submit" (click)="titleButton === 'Modifier' ? editArticle() : articlSubmit()" class="btn btn-primary" [disabled]="articleForm.invalid">{{titleButton}} </button>
                                         </form>
                                     </div>
                                 </div>
@@ -237,5 +249,3 @@
         </main>
     </div>
 </body>
-
-
