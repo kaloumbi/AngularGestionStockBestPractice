@@ -7,6 +7,8 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { VenteComponent } from './vente/vente.component';
 import { AppComponent } from '../app.component';
 import { HomeComponent } from './home/home.component';
+import { VenteDetailComponent } from './vente-detail/vente-detail.component';
+import { EffectuerVenteComponent } from './effectuer-vente/effectuer-vente.component';
 
 const routes: Routes = [
   {
@@ -14,8 +16,11 @@ const routes: Routes = [
       //{ path: "", redirectTo: "/listArticle", pathMatch: "full"},
       {path: "listArticle", component: DashboardComponent },
       {path: "article/:id/detail", component: ArticleDetailComponent },
-      {path: "listeVentes", component: VenteComponent }
+      { path: "listeVentes", component: VenteComponent },
+      { path: "vente/:id/detail", component: VenteDetailComponent },
+      {path: "effectuerVent", component: EffectuerVenteComponent}
     ]
+
   }
 ];
 

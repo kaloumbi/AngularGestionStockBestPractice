@@ -55,7 +55,7 @@
                     <div class="case">
                         <div class="header-case">
                             <h2>Listes Des Ventes</h2>
-
+                            <button (click)="callVenteComp()" class="efVente">Effectuer une Vente</button>
                         </div>
 
 
@@ -79,19 +79,19 @@
                                        @for (venteItem of venteList; track venteItem) {
                                             <tr>
 
-                                                <td> {{venteItem.date_annulation}} </td>
-                                                <td> {{venteItem.date_vente}} </td>
+                                                <td> {{venteItem.date_annulation | date:'medium'}} </td>
+                                                <td> {{venteItem.date_vente | date:'medium'}} </td>
                                                 <td> {{venteItem.etat_vente}} </td>
                                                 <td> {{venteItem.id_USER}} </td>
 
                                                 <td>
-                                                    <button  type="button" class="btn btn-danger">
+                                                    <button (click)="getVente(venteItem.id_vente)"  type="button" class="btn btn-danger">
                                                         <i class="bi bi-eye"></i>
                                                     </button>
                                                     <button  class="button" data-bs-toggle="modal" data-bs-target="#myModal" type="button" class="btn btn-primary">
                                                         <i class="bi bi-pencil"></i>
                                                     </button>
-                                                    <button  type="button" class="btn btn-danger">
+                                                    <button (click)="deleteVente(venteItem.id_vente)"  type="button" class="btn btn-danger">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
 

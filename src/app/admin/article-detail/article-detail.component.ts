@@ -36,7 +36,7 @@ export class ArticleDetailComponent {
   //this.router.navigate(["/admin"]);
   
   goBack() {
-    this.router.navigate(["/admin"]);
+    this.router.navigate(["/admin/listArticle"]);
   }
 
 }

@@ -1,0 +1,25 @@
+<div class="form-group mt-2">
+  <div class="container my-2">
+    <h5>Produits</h5>
+    <form >
+      <div class="row row-cols-1 row-cols-md-5 d-flex flex-nowrap overflow-auto">
+        @for (prodItem of articlesList; track $index) {
+
+          <ng-container>
+            <div class="card mb-3 ms-5" style="width: 19rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ prodItem.prix }}F</h5>
+                <p class="card-text">{{ prodItem.nom }}</p>
+                <input type="checkbox" name="choisis[]" [value]="prodItem.id_article" (change)="updateArticleSelection(prodItem.id_article, $event)">
+                <input type="number" min="0" value="0" aria-label="Search" (input)="updateArticleQuantity(prodItem.id_article, $event)" name="qteChoisie[]" class="form-control" style="width: 80px; height: 29px;">
+              </div>
+            </div>
+          </ng-container>
+        }
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button (click)="effectuerVente()" type="submit" class="btn btn-primary">Soumettre</button>
+      </div>
+    </form>
+  </div>
+</div>

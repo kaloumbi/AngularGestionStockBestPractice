@@ -1,0 +1,38 @@
+<div class="container detailArticle my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <div class="card-header text-white text-center py-4">
+          <h3 class="mb-0">Détails de l'État de la vente: {{ detailVente.etat_vente }}</h3>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="font-weight-bold">ID de la vente:</span>
+              <span>{{ detailVente.id_vente }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="font-weight-bold">Date Annulation:</span>
+              <span>{{ detailVente.date_annulation | date:'medium'}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="font-weight-bold">Date de la vente:</span>
+              <span>{{ detailVente.date_vente | date:'medium'}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="font-weight-bold">État de la vente:</span>
+              <span>{{ detailVente.etat_vente }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="font-weight-bold">ID Utilisateur:</span>
+              <span>{{ detailVente.id_USER }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="card-footer bg-light text-center py-3">
+          <a (click)="goBack()" class="btn btn-primary">Retour à la liste</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

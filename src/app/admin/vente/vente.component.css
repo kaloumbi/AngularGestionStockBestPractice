@@ -178,7 +178,7 @@
             background: #008ea1;
             border-radius: 10px;
             color: #fff;
-            font-size: .8rem;
+            /* font-size: .8rem; */
             padding: .5rem 1rem;
             border: none;
             cursor: pointer;
@@ -677,6 +677,21 @@
             color: white;
             font-weight: bold;
         }
+
+        /**
+         * EFFECTUER UNE VENTE
+         */
+
+         button .efVente{
+            /* font-size: 5rem; */
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+         }
+
+
+
+
+
 
 
 

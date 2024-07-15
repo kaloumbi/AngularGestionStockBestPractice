@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { VenteI } from './../../model/vente-i';
 import { Component, OnInit } from '@angular/core';
 import { VenteService } from '../../service/vente.service';
@@ -16,12 +17,13 @@ import { trigger } from '@angular/animations';
 export class VenteComponent implements OnInit{
 
   venteList: VenteI[] = [];
+  venteDetail !: VenteI;
   
 
   dtOptions: Config = {};
   dttrigger: Subject<any> = new Subject();
 
-  constructor(private venteService : VenteService) { }  
+  constructor(private venteService : VenteService, private router: Router) { }  
 
   ngOnInit() {
     this.getAllVente()
@@ -42,6 +44,20 @@ export class VenteComponent implements OnInit{
         
       }
     );
+  }
+
+  getVente(id: number) {
+    this.router.navigate([`admin/vente/${id}/detail`]);
+  }
+
+  deleteVente(id: number) {
+
+    return this.venteService.delOneVente(id).subscribe()
+  }
+
+  
+  callVenteComp() {
+    this.router.navigate(["/admin/effectuerVent"]);
   }
 
 }
